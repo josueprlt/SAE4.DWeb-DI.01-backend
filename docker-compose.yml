@@ -48,7 +48,7 @@ services:
     environment:
       PMA_HOST: mysql
       PMA_USER: root
-      PMA_PASSWORD: root
+      PMA_PASSWORD: roothu
     ports:
       - "8070:80"
     depends_on:
