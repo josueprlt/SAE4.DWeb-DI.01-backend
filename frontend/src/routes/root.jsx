@@ -1,4 +1,5 @@
 import Navbar from '../ui/NavBar';
+import Button from '../ui/Button';
 import { Outlet } from 'react-router-dom';
 
 export default function Root() {
@@ -7,6 +8,7 @@ export default function Root() {
     <>
       <section>
         <Navbar />
+        <Button intent="free">Test</Button>
         <Outlet />
       </section>
     </>
