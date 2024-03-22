@@ -10,7 +10,9 @@
     --clr-bg-btn-hover: 211 100% 59%;
     --clr-bg-body: 219.51 100% 8.04%;
     --clr-bg-btn-cate: 220 38% 23%;
-    --clr-bg-btn-cate: #0000007a;
+    --clr-white: 0 0% 100%;
+
+    --size-slider: 35rem;
 
     --font-title-size: 40px;
     --font-h2-line-heigth: 56px;

@@ -42,10 +42,26 @@ function Profil(props) {
 
 function Research(props) {
     return (
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
-        <path d="M34.2 32.1l-5.6-5.6a8 8 0 00-12.3-10.2 8.1 8.1 0 000 11.4A8.5 8.5 0 0022 30a8.2 8.2 0 004.5-1.4l5.6 5.6a1.4 1.4 0 002.1 0 1.5 1.5 0 000-2.1zm-16.4-5.9a5.8 5.8 0 010-8.4 5.8 5.8 0 018.4 0 5.9 5.9 0 01-8.4 8.4z"></path>
-      </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+            <path d="M34.2 32.1l-5.6-5.6a8 8 0 00-12.3-10.2 8.1 8.1 0 000 11.4A8.5 8.5 0 0022 30a8.2 8.2 0 004.5-1.4l5.6 5.6a1.4 1.4 0 002.1 0 1.5 1.5 0 000-2.1zm-16.4-5.9a5.8 5.8 0 010-8.4 5.8 5.8 0 018.4 0 5.9 5.9 0 01-8.4 8.4z"></path>
+        </svg>
     );
-  }
+}
 
-export { Hamburger, Logo, Profil, Research };
+function ArrowLeft(props) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+            <path d="M29 34.9c-.3 0-.5-.1-.7-.3L17.6 24l10.6-10.6c.4-.4 1-.4 1.4 0s.4 1 0 1.4L20.5 24l9.2 9.2c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3z"/>
+        </svg>
+    );
+}
+
+function ArrowRight(props) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+            <path d="M19 34.9a1.1 1.1 0 0 1-.7-.3 1.2 1.2 0 0 1 0-1.4l9.2-9.2-9.2-9.2a1.2 1.2 0 0 1 0-1.4 1.1 1.1 0 0 1 1.5 0L30.4 24 19.8 34.6a1.1 1.1 0 0 1-.8.3Z"/>
+        </svg>
+    );
+}
+
+export { Hamburger, Logo, Profil, Research, ArrowLeft, ArrowRight };

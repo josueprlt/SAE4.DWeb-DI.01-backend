@@ -6,9 +6,9 @@ export default function Root() {
 
   return (
     <>
-      <section>
+      <section className='relative'>
         <Navbar />
-        <Carrousel 
+        {/* <Carrousel 
           images={[
             "/slider/film1.jpg",
             "/slider/film2.jpg",
@@ -16,7 +16,7 @@ export default function Root() {
             "/slider/film4.jpg",
             "/slider/film5.jpg",
           ]}
-        />
+        /> */}
         <Outlet />
       </section>
     </>
