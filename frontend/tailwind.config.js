@@ -4,24 +4,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: "hsl(var(--background) /<alpha-value>)",
-        foreground: "hsl(var(--foreground) /<alpha-value>)",
-      },
-      textColor: {
-        background: "hsl(var(--background) /<alpha-value>)",
-        foreground: "hsl(var(--foreground) /<alpha-value>)",
-      },
-      maxWidth: {
-        ch: "60ch",
-      },
-      aspectRatio: {
-        card: "1 / 1.25",
-      },
-      backgroundImage: {
-        shape: "url('./assets/bgshapes.svg')",
-      },
-      borderRadius: {
-        DEFAULT: "var(--radius)",
+        colorBorderBlue: "hsl(var(--clr-border-blue) /<alpha-value>)",
+        colorBgBtn: "hsl(var(--clr-bg-btn) /<alpha-value>)",
+        colorBgBtnHover: "hsl(var(--clr-bg-btn-hover) /<alpha-value>)",
+        colorBgBody: "hsl(var(--clr-bg-body) /<alpha-value>)",
+        colorBgBtnCate: "hsl(var(--clr-bg-btn-cate) /<alpha-value>)",
+        colorBgNav: "hsl(var(--clr-bg-nav) /<alpha-value>)",
       },
     },
   },
