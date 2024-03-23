@@ -3,7 +3,17 @@ import Carrousel from '../Carrousel';
 import { Hamburger, Profil, Research, Logo } from "../../components/icons";
 
 
+async function fetchApiData(idmovie) {
+  let answer = await fetch('http://localhost:8080/api/movie/'+idmovie);
+  let data = await answer.json();
+  return data;
+}
+
 export default function NavBar() {
+
+  let data = fetchApiData('1');
+  console.log(data);
+
   return (
     <>
       <nav className="fixed top-0 z-50 w-full px-3 shadow-dark-mild flex items-center justify-between border-t-8 border-colorBorderBlue bg-gradient-to-b from-[#0000007a]">
@@ -25,7 +35,7 @@ export default function NavBar() {
             <Profil className="w-12 fill-white hover:bg-colorBorderBlue"></Profil>
           </Link>
         </section>
-        
+
       </nav>
       <Carrousel
         images={[
