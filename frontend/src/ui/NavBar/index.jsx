@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Carrousel from '../Carrousel';
 import { Hamburger, Profil, Research, Logo } from "../../components/icons";
 
+
 export default function NavBar() {
   return (
     <>
@@ -24,7 +25,7 @@ export default function NavBar() {
             <Profil className="w-12 fill-white hover:bg-colorBorderBlue"></Profil>
           </Link>
         </section>
-
+        
       </nav>
       <Carrousel
         images={[
@@ -34,6 +35,7 @@ export default function NavBar() {
           "/slider/film4.jpg",
           "/slider/film5.jpg",
         ]}
+
       />
     </>
   );
