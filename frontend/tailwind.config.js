@@ -14,6 +14,7 @@ export default {
       },
       spacing: {
         sizeSlider: "var(--size-slider)",
+        sizeH2: "var(--size-h2)",
       },
     },
   },

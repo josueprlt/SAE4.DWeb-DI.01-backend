@@ -32,10 +32,17 @@ export default function Carousel({ images }) {
               index === currentIndex || index === prevIndex ? 'opacity-100' : 'opacity-0'
             }`}
           >
+            <section className='absolute bottom-32 text-colorWhite ml-52'>
+                  <h2 className='text-3xl'>test</h2>
+                  <p>description</p>
+                  <p>categories</p>
+                  <button>Visionner</button>
+            </section>
             <img src={image} alt={`Slide ${index}`} className="w-screen h-full object-cover" />
           </div>
         ))}
       </div>
+
       <button
         className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-colorBgBtnCate bg-opacity-50 p-2 rounded-full hover:bg-colorBorderBlue transition-colors z-10"
         onClick={goToPrevSlide}

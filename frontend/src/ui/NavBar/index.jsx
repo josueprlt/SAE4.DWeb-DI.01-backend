@@ -3,16 +3,16 @@ import Carrousel from '../Carrousel';
 import { Hamburger, Profil, Research, Logo } from "../../components/icons";
 
 
-async function fetchApiData(idmovie) {
+/* async function fetchApiData(idmovie) {
   let answer = await fetch('http://localhost:8080/api/movie/'+idmovie);
   let data = await answer.json();
   return data;
-}
+} */
 
 export default function NavBar() {
 
-  let data = fetchApiData('1');
-  console.log(data);
+  /* let data = fetchApiData('1');
+  console.log(data); */
 
   return (
     <>
