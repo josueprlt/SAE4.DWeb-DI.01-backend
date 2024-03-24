@@ -48,10 +48,18 @@ function Research(props) {
     );
 }
 
+function Play(props) {
+    return (
+        <svg viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg" {...props}>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M0 2C0 0.895508 0.895508 0 2 0L30 15L2 30C0.895508 30 0 29.1045 0 28V2Z"/>
+        </svg>
+    );
+}
+
 function ArrowLeft(props) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
-            <path d="M29 34.9c-.3 0-.5-.1-.7-.3L17.6 24l10.6-10.6c.4-.4 1-.4 1.4 0s.4 1 0 1.4L20.5 24l9.2 9.2c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3z"/>
+            <path d="M29 34.9c-.3 0-.5-.1-.7-.3L17.6 24l10.6-10.6c.4-.4 1-.4 1.4 0s.4 1 0 1.4L20.5 24l9.2 9.2c.4.4.4 1 0 1.4-.2.2-.5.3-.7.3z" />
         </svg>
     );
 }
@@ -59,9 +67,9 @@ function ArrowLeft(props) {
 function ArrowRight(props) {
     return (
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
-            <path d="M19 34.9a1.1 1.1 0 0 1-.7-.3 1.2 1.2 0 0 1 0-1.4l9.2-9.2-9.2-9.2a1.2 1.2 0 0 1 0-1.4 1.1 1.1 0 0 1 1.5 0L30.4 24 19.8 34.6a1.1 1.1 0 0 1-.8.3Z"/>
+            <path d="M19 34.9a1.1 1.1 0 0 1-.7-.3 1.2 1.2 0 0 1 0-1.4l9.2-9.2-9.2-9.2a1.2 1.2 0 0 1 0-1.4 1.1 1.1 0 0 1 1.5 0L30.4 24 19.8 34.6a1.1 1.1 0 0 1-.8.3Z" />
         </svg>
     );
 }
 
-export { Hamburger, Logo, Profil, Research, ArrowLeft, ArrowRight };
+export { Hamburger, Logo, Profil, Research, ArrowLeft, ArrowRight, Play };

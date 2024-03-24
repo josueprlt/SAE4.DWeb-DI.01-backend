@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowLeft, ArrowRight } from "../../components/icons";
+import { ArrowLeft, ArrowRight, Play } from "../../components/icons";
 
 export default function Carousel({ images }) {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -28,17 +28,24 @@ export default function Carousel({ images }) {
         {images.map((image, index) => (
           <div
             key={index}
-            className={`slide absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${
-              index === currentIndex || index === prevIndex ? 'opacity-100' : 'opacity-0'
-            }`}
+            className={`slide absolute top-0 left-0 w-full h-full transition-opacity duration-500 ${index === currentIndex || index === prevIndex ? 'opacity-100' : 'opacity-0'
+              }`}
           >
-            <section className='absolute bottom-32 text-colorWhite ml-52'>
-                  <h2 className='text-3xl'>test</h2>
-                  <p>description</p>
-                  <p>categories</p>
-                  <button>Visionner</button>
-            </section>
             <img src={image} alt={`Slide ${index}`} className="w-screen h-full object-cover" />
+            
+            <section className='absolute bottom-0 w-full bg-gradient-to-t from-colorBgBody'>
+              <figure className='text-colorWhite ml-52 mb-28'>
+                <figcaption>
+                  <h2 className='text-3xl'>Slide numéro {index}</h2>
+                  <p>description</p>
+                </figcaption>
+
+                <button className='flex justify-center items-center gap-3 px-5 py-2 rounded-full bg-colorBgBtn hover:bg-colorBgBtnHover'>
+                  <Play className="w-3 fill-colorWhite"/>
+                  <span className='font-semibold text-lg'>Visionner</span>
+                </button>
+              </figure>
+            </section>
           </div>
         ))}
       </div>

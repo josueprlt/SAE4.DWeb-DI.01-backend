@@ -28,3 +28,7 @@
     --font-h2-family: "The Sans", sans-serif;
   }
 }
+
+#root {
+  height: 100vh;
+}
