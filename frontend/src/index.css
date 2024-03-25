@@ -23,5 +23,31 @@
     --elt-size: 48px;
 
     --font-family: "The sans", sans-serif;
+
+    --clr-border-blue: 211 100% 50%;
+    --clr-bg-btn: 212 100% 47%;
+    --clr-bg-btn-hover: 211 100% 59%;
+    --clr-bg-body: 219.51 100% 8.04%;
+    --clr-bg-btn-cate: 220 38% 23%;
+    --clr-white: 0 0% 100%;
+
+    --size-slider: 35rem;
+    --size-h2: 31px;
+
+    --font-title-size: 40px;
+    --font-h2-line-heigth: 56px;
+    --font-h2-family: "The Sans", sans-serif;
+
+    --font-title-size: 14px;
+    --font-h2-line-heigth: 16px;
+    --font-h2-family: "The Sans", sans-serif;
+
+    --font-h2-size: 28px;
+    --font-h2-line-heigth: 39px;
+    --font-h2-family: "The Sans", sans-serif;
   }
+}
+
+#root {
+  height: 100vh;
 }

@@ -23,6 +23,17 @@ export default {
         lineHeight: "hsl(var(--font-line-height-h2) /<alpha-value>)",
         padding: "hsl(var(--font-padding-h2) /<alpha-value>)",
         margin: "hsl(var(--font-margin-h2) /<alpha-value>)",
+        colorBorderBlue: "hsl(var(--clr-border-blue) / <alpha-value>)",
+        colorBgBtn: "hsl(var(--clr-bg-btn) / <alpha-value>)",
+        colorBgBtnHover: "hsl(var(--clr-bg-btn-hover) / <alpha-value>)",
+        colorBgBody: "hsl(var(--clr-bg-body) / <alpha-value>)",
+        colorBgBtnCate: "hsl(var(--clr-bg-btn-cate) / <alpha-value>)",
+        colorBgNav: "hsl(var(--clr-bg-nav) / <alpha-value>)",
+        colorWhite: "hsl(var(--clr-white) / <alpha-value>)",
+      },
+      spacing: {
+        sizeSlider: "var(--size-slider)",
+        sizeH2: "var(--size-h2)",
       },
 
     },

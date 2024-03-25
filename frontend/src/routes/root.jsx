@@ -6,7 +6,7 @@ export default function Root() {
 
   return (
     <>
-      <section>
+      <section className='relative bg-colorBgBody h-full'>
         <Navbar />
         <Button intent="free">Test</Button>
         <Outlet />
