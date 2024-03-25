@@ -1,14 +1,23 @@
-import Navbar from '../ui/NavBar';
-import Button from '../ui/Button';
-import { Outlet } from 'react-router-dom';
+import Navbar from "../ui/NavBar";
+import Carousel from "../ui/Carrousel";
+import PaysageCard from "../ui/PaysageCard";
+import { Outlet } from "react-router-dom";
 
 export default function Root() {
-
   return (
     <>
-      <section className='relative bg-colorBgBody h-full'>
+      <section className="bg-colorBgBody relative h-full">
         <Navbar />
-        <Button intent="free">Test</Button>
+        <Carousel
+          images={[
+            "/slider/film1.jpg",
+            "/slider/film2.jpg",
+            "/slider/film3.jpeg",
+            "/slider/film4.jpg",
+            "/slider/film5.jpg",
+          ]}
+        />
+        <PaysageCard/>
         <Outlet />
       </section>
     </>

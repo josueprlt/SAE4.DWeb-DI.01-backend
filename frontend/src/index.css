@@ -5,23 +5,6 @@
 @layer base {
   :root {
     /* Primitives Tokens  */
-    --clr-body-bg: 219.51 100% 8.04%;
-    --clr-body-border-top: 211.29 100% 50%;
-    --clr-button-bg: 211.51 100% 46.67%;
-    --clr-button-bg-hover: 211.43 100% 58.82%;
-    --clr-button-cat-bg: 219.55 37.93% 22.75%;
-    --clr-button-playlist-bg: 220 38% 23% 0.5;
-    --clr-text-white: 0 0% 100%;
-
-    --font-w-logo: 86px;
-
-    --font-size-h2: 28px;
-    --font-line-height-h2: 39.2px;
-    --font-padding-h2: 10px 10px 16px 0;
-    --font-margin-h2: 0 32px;
-
-    --elt-size: 48px;
-
     --font-family: "The sans", sans-serif;
 
     --clr-border-blue: 211 100% 50%;
@@ -36,10 +19,6 @@
 
     --font-title-size: 40px;
     --font-h2-line-heigth: 56px;
-    --font-h2-family: "The Sans", sans-serif;
-
-    --font-title-size: 14px;
-    --font-h2-line-heigth: 16px;
     --font-h2-family: "The Sans", sans-serif;
 
     --font-h2-size: 28px;

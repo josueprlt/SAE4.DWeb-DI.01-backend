@@ -1,8 +1,5 @@
 # see https://symfony.com/doc/current/reference/configuration/framework.html
 framework:
-    cors:
-        allow_origin: ['http://localhost:8090']
-
     secret: '%env(APP_SECRET)%'
     #csrf_protection: true
 
