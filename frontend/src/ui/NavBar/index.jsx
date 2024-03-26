@@ -34,7 +34,7 @@ export default function NavBar() {
       </nav>
 
       {isMenuOpen && (
-        <div className="fixed inset-0 bg-colorBgFondBurger bg-opacity-50 z-50">
+        <div className="fixed inset-0 bg-colorBgFondBurger bg-opacity-70 z-50">
           <div className="relative flex justify-start w-80 h-full items-center px-8 bg-colorBgBurger">
             <Cross className="absolute top-5 left-5 w-16 fill-colorWhite hover:fill-colorBorderBlue cursor-pointer" onClick={toggleMenu}/>
             <ul className="text-colorWhite">

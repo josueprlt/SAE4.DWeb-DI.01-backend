@@ -13,8 +13,10 @@
     --clr-bg-body: 219.51 100% 8.04%;
     --clr-bg-btn-cate: 220 38% 23%;
     --clr-white: 0 0% 100%;
-    --clr-bg-fond-burger: 220 100% 18%;
+    --clr-bg-fond-burger: 220 100% 8%;
     --clr-bg-burger: 218 100% 16%;
+
+    --clr-test: #000e2980;
 
     --size-slider: 35rem;
     --size-h2: 31px;
