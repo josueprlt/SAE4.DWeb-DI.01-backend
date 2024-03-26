@@ -4,13 +4,13 @@ import PaysageCard from "../ui/PaysageCard";
 import PortraitCard from "../ui/PortraitCard";
 import { Outlet } from "react-router-dom";
 
-/* async function fetchData() {
+async function fetchData() {
   let response = await fetch("http://localhost:8080/api/movie/1");
   let data = await response.json();
   console.log(data);
 }
 
-fetchData() */
+fetchData()
 
 export default function Root() {
   return (

@@ -9,6 +9,7 @@ use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Movie;
+use App\Repository\MovieRepository;
 
 class JsonApiController extends AbstractController
 {
@@ -18,6 +19,16 @@ class JsonApiController extends AbstractController
         return $this->render('json_api/index.html.twig', [
             'controller_name' => 'JsonApiController',
         ]);
+    }
+
+    #[Route('/api/movies', name: 'app_api_movies')]
+    public function readAllMovies(MovieRepository $movieRepository, SerializerInterface $serializer): Response
+    {
+        $movies = $movieRepository->findAll();
+        
+        $data = $serializer->normalize($movies, null, ['groups' => 'json_movie']);
+        $response = new JsonResponse($data);
+        return $response;
     }
 
     #[Route('/api/movie/{id}', name: 'app_api_movie')]
