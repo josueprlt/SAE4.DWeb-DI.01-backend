@@ -72,4 +72,12 @@ function ArrowRight(props) {
     );
 }
 
-export { Hamburger, Logo, Profil, Research, ArrowLeft, ArrowRight, Play };
+function Cross(props) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+            <path d="m25.4 24 8.3-8.3a1 1 0 1 0-1.4-1.4L24 22.6l-8.3-8.3a1 1 0 0 0-1.4 1.4l8.3 8.3-8.3 8.3a1 1 0 0 0 0 1.4 1 1 0 0 0 1.4 0l8.3-8.3 8.3 8.3a1 1 0 0 0 1.4 0 1 1 0 0 0 0-1.4Z"/>
+        </svg>
+    );
+}
+
+export { Hamburger, Logo, Profil, Research, ArrowLeft, ArrowRight, Play, Cross };

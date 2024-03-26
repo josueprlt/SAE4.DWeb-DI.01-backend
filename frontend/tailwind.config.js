@@ -11,6 +11,8 @@ export default {
         colorBgBtnCate: "hsl(var(--clr-bg-btn-cate) / <alpha-value>)",
         colorBgNav: "hsl(var(--clr-bg-nav) / <alpha-value>)",
         colorWhite: "hsl(var(--clr-white) / <alpha-value>)",
+        colorBgFondBurger: "hsl(var(--clr-bg-fond-burger) / <alpha-value>)",
+        colorBgBurger: "hsl(var(--clr-bg-burger) / <alpha-value>)",
       },
 
       spacing: {
