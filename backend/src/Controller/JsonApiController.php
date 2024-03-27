@@ -10,6 +10,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Entity\Movie;
 use App\Repository\MovieRepository;
+use App\Repository\CategoryRepository;
 
 class JsonApiController extends AbstractController
 {
@@ -40,6 +41,16 @@ class JsonApiController extends AbstractController
         // $response est une instance de JsonResponse qui hérite de Response
         // C'est la classe à utiliser lorsque l'on veut retourner du JSON
         // $data sera automatiquement encodé en JSON
+        $response = new JsonResponse($data);
+        return $response;
+    }
+
+    #[Route('/api/categories', name: 'app_api_categories')]
+    public function readAllCategories(CategoryRepository $cats, SerializerInterface $serializer): Response
+    {
+        $gategories = $cats->findAll();
+
+        $data = $serializer->normalize($gategories, null, ['groups' => 'json_category']);
         $response = new JsonResponse($data);
         return $response;
     }
