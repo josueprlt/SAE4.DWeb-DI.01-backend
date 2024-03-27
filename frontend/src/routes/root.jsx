@@ -1,9 +1,9 @@
 import Navbar from "../ui/NavBar";
 import Carousel from "../ui/Carrousel";
 import CategoryList from "../ui/CategoryList";
-import PaysageCard from "../ui/PaysageCard";
-import PortraitCard from "../ui/PortraitCard";
+/* import PortraitCard from "../ui/PortraitCard"; */
 import { Outlet } from "react-router-dom";
+import MoviesList from "../ui/MoviesList";
 
 
 export default function Root() {
@@ -22,9 +22,9 @@ export default function Root() {
         />
 
         <CategoryList />
+
+        <MoviesList/>
         
-        <PaysageCard/>
-        <PortraitCard/>
         <Outlet />
       </section>
     </>

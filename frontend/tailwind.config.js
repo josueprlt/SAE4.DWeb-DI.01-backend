@@ -13,6 +13,7 @@ export default {
         colorWhite: "hsl(var(--clr-white) / <alpha-value>)",
         colorBgFondBurger: "hsl(var(--clr-bg-fond-burger) / <alpha-value>)",
         colorBgBurger: "hsl(var(--clr-bg-burger) / <alpha-value>)",
+        colorBorderResearch: "hsl(var(--clr-border-research) / <alpha-value>)",
       },
 
       spacing: {

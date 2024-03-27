@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Root from './routes/root.jsx';
+import Research from './routes/research.jsx';
 import About from './routes/about.jsx';
 import ErrorPage from './ui/ErrorPage';
 
@@ -15,18 +16,11 @@ const router = createBrowserRouter([
     path: '/',
     element: <Root />,
     errorElement: <ErrorPage />,
-    /* children: [
-      {
-        path: '/buy',
-        element: <Buy />,
-        loader: buyLoader,
-      },
-      {
-        path: '/team/:teamName',
-        element: <OurTeams />,
-        loader: ourTeamsLoader,
-      }
-    ] */
+  },
+  {
+    path: '/research',
+    element: <Research />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/about',

@@ -45,4 +45,15 @@ class MovieRepository extends ServiceEntityRepository
     //            ->getOneOrNullResult()
     //        ;
     //    }
+
+    public function findByInputResearch($value): array
+    {
+    return $this->createQueryBuilder('m')
+        ->andWhere('m.name LIKE :val')
+        ->setParameter('val', '%' . $value . '%')
+        ->orderBy('m.id', 'ASC')
+        ->getQuery()
+        ->getResult()
+        ;
+    }
 }
