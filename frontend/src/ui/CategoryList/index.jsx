@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { fetchAllCategories } from '../../routes/root';
 
-async function fetchAllCategories() {
-  let response = await fetch("http://localhost:8080/api/categories");
-  let data = await response.json();
-  return data;
-}
 
-function CategoryList() {
+export default function CategoryList() {
   const [categories, setCategories] = useState([]);
 
 
@@ -26,5 +22,3 @@ function CategoryList() {
     </ul>
   );
 }
-
-export default CategoryList;

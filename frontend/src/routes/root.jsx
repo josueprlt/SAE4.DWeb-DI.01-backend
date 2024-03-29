@@ -5,7 +5,6 @@ import CategoryList from "../ui/CategoryList";
 import { Outlet } from "react-router-dom";
 import MoviesList from "../ui/MoviesList";
 
-
 export default function Root() {
   return (
     <>
@@ -29,4 +28,22 @@ export default function Root() {
       </section>
     </>
   );
+}
+
+export async function fetchAllCategories() {
+  let response = await fetch("http://localhost:8080/api/categories");
+  let data = await response.json();
+  return data;
+}
+
+export async function fetchAllMovies() {
+  let response = await fetch("http://localhost:8080/api/movies");
+  let data = await response.json();
+  return data;
+}
+
+export async function fetchResearch(value) {
+  let response = await fetch("http://localhost:8080/api/research/" + value);
+  let data = await response.json();
+  return data;
 }

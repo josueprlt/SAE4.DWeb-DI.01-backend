@@ -1,31 +1,35 @@
-import React, { useState, useEffect, useRef } from 'react';
-
-async function fetchAllMovies() {
-  let response = await fetch("http://localhost:8080/api/movies");
-  let data = await response.json();
-  return data;
-}
+import React, { useState, useEffect, useRef } from "react";
+import { fetchAllMovies } from "../../routes/root";
 
 export default function MoviesList() {
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
     fetchAllMovies()
-      .then(data => setMovies(data))
-      .catch(error => console.error('Erreur lors de la récupération des films:', error));
+      .then((data) => setMovies(data))
+      .catch((error) =>
+        console.error("Erreur lors de la récupération des films:", error),
+      );
   }, []);
 
   return (
-    <section className='w-full flex flex-wrap gap-2 m-24 mr-0 pb-24'>
-      {movies.map(movie => (
-        <figure key={movie.id} className="group/card w-60 h-36 cursor-pointer overflow-hidden rounded-xl bg-colorBgBtnCate transition-transform delay-500 hover:h-auto hover:scale-125">
-          <section className="flex justify-center items-center w-60 h-36 overflow-hidden">
-            <img className="group-hover/card:scale-105 ease-in-out duration-300" src="/film5.jpg" alt="Film" />
+    <section className="m-24 mr-0 flex w-full flex-wrap gap-2 pb-24">
+      {movies.map((movie) => (
+        <figure
+          key={movie.id}
+          className="group/card h-36 w-60 cursor-pointer overflow-hidden rounded-xl bg-colorBgBtnCate transition-transform delay-500 hover:h-auto hover:scale-125"
+        >
+          <section className="flex h-36 w-60 items-center justify-center overflow-hidden">
+            <img
+              className="duration-300 ease-in-out group-hover/card:scale-105"
+              src={movie.img}
+              alt="Film"
+            />
           </section>
-          <figcaption className="text-colorWhite px-4 py-3">
+          <figcaption className="px-4 py-3 text-colorWhite">
             <h3>{movie.name}</h3>
             <p>{movie.description}</p>
-            {movie.category.map(cat => (
+            {movie.category.map((cat) => (
               <li key={cat.id}>
                 {cat.id}: {cat.name}
               </li>
@@ -34,6 +38,5 @@ export default function MoviesList() {
         </figure>
       ))}
     </section>
-
   );
 }
