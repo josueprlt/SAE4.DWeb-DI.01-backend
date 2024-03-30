@@ -56,4 +56,13 @@ class MovieRepository extends ServiceEntityRepository
         ->getResult()
         ;
     }
+
+    public function findForCarousel(): array
+    {
+    return $this->createQueryBuilder('m')
+        ->orderBy('m.id', 'ASC')
+        ->setMaxResults(5)
+        ->getQuery()
+        ->getResult();
+    }
 }

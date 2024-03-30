@@ -57,6 +57,18 @@ class JsonApiController extends AbstractController
 
 
 
+    #[Route('/api/carousel', name: 'app_api_carousel')]
+    public function readResearch(MovieRepository $movieRepository, SerializerInterface $serializer): Response
+    {
+        $carousel = $movieRepository->findForCarousel();
+
+        $data = $serializer->normalize($carousel, null, ['groups' => 'json_category']);
+        $response = new JsonResponse($data);
+        return $response;
+    }
+
+
+
 
     #[Route('/api/categories', name: 'app_api_categories')]
     public function readAllCategories(CategoryRepository $cats, SerializerInterface $serializer): Response

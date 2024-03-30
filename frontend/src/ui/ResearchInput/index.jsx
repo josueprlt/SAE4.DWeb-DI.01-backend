@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Research } from "../../components/icons";
 import { fetchResearch } from "../../routes/root";
+import PaysageCard from "../PaysageCard";
+
 
 function ResearchInput() {
   const [inputValue, setInputValue] = useState("");
@@ -35,24 +37,7 @@ function ResearchInput() {
       </section>
 
       <section className="p-24 pr-0 flex w-full flex-wrap gap-2 pb-24">
-        {data.map((movie) => (
-          <figure
-            key={movie.id}
-            className="group/card h-36 w-60 cursor-pointer overflow-hidden rounded-xl bg-colorBgBtnCate transition-transform delay-500 hover:h-auto hover:scale-125"
-          >
-            <section className="flex h-36 w-60 items-center justify-center overflow-hidden">
-              <img
-                className="duration-300 ease-in-out group-hover/card:scale-105"
-                src={movie.img}
-                alt="Film"
-              />
-            </section>
-            <figcaption className="px-4 py-3 text-colorWhite">
-              <h3>{movie.name}</h3>
-              <p>{movie.description}</p>
-            </figcaption>
-          </figure>
-        ))}
+        <PaysageCard mov={data}/>
       </section>
     </>
   );
