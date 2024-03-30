@@ -1,34 +1,44 @@
 import React, { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, Play } from "../../components/icons";
+import { fetchCarousel } from "../../routes/root";
 
-export default function Carousel({ images }) {
-
+export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [prevIndex, setPrevIndex] = useState(0);
-
+  const [movies, setMovies] = useState([]);
+  
   const goToNextSlide = () => {
-    const newIndex = (currentIndex + 1) % images.length;
+    const newIndex = (currentIndex + 1) % 6;
     setPrevIndex(currentIndex);
     setCurrentIndex(newIndex);
   };
-
+  
   const goToPrevSlide = () => {
-    const newIndex = (currentIndex - 1 + images.length) % images.length;
+    const newIndex = (currentIndex - 1 + 6) % 6;
     setPrevIndex(currentIndex);
     setCurrentIndex(newIndex);
   };
-
+  
   useEffect(() => {
     const intervalId = setInterval(goToNextSlide, 5000);
     return () => clearInterval(intervalId);
   }, [currentIndex]);
-
+  
+  useEffect(() => {
+    fetchCarousel()
+      .then((data) => setMovies(data))
+      .catch((error) =>
+        console.error("Erreur lors de la récupération des films:", error),
+      );
+  }, []);
+  
   return (
     <>
       <div className="relative h-sizeSlider overflow-hidden">
         <div className="flex">
-          {images.map((image, index) => (
+          {movies.map((movie, index) => (
             <div
+              id={movie.id}
               key={index}
               className={`slide absolute left-0 top-0 h-full w-full transition-opacity duration-500 ${
                 index === currentIndex || index === prevIndex
@@ -36,17 +46,13 @@ export default function Carousel({ images }) {
                   : "opacity-0"
               }`}
             >
-              <img
-                src={image}
-                alt={`Slide ${index}`}
-                className="h-full w-screen object-cover"
-              />
+              <img src={movie.img} alt={movie.name} className="h-full w-screen object-cover"/>
 
               <section className="from-colorBgBody absolute bottom-0 w-full bg-gradient-to-t">
                 <figure className="flex flex-col text-center items-center mb-28 text-colorWhite">
                   <figcaption>
-                    <h2 className="text-3xl font-bold">Slide numéro {index}</h2>
-                    <p className="font-semibold">description</p>
+                    <h2 className="text-3xl font-bold">{movie.name}</h2>
+                    <p className="font-semibold">{movie.description}</p>
                   </figcaption>
 
                   <button className="bg-colorBgBtn hover:bg-colorBgBtnHover flex items-center justify-center gap-3 rounded-full px-5 py-2">

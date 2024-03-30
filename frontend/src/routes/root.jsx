@@ -10,15 +10,7 @@ export default function Root() {
     <>
       <section className="bg-colorBgBody relative h-auto">
         <Navbar />
-        <Carousel
-          images={[
-            "/slider/film1.jpg",
-            "/slider/film2.jpg",
-            "/slider/film3.jpeg",
-            "/slider/film4.jpg",
-            "/slider/film5.jpg",
-          ]}
-        />
+        <Carousel/>
 
         <CategoryList />
 
@@ -44,6 +36,12 @@ export async function fetchAllMovies() {
 
 export async function fetchResearch(value) {
   let response = await fetch("http://localhost:8080/api/research/" + value);
+  let data = await response.json();
+  return data;
+}
+
+export async function fetchCarousel() {
+  let response = await fetch("http://localhost:8080/api/carousel");
   let data = await response.json();
   return data;
 }

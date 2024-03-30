@@ -58,7 +58,7 @@ class JsonApiController extends AbstractController
 
 
     #[Route('/api/carousel', name: 'app_api_carousel')]
-    public function readResearch(MovieRepository $movieRepository, SerializerInterface $serializer): Response
+    public function readCarousel(MovieRepository $movieRepository, SerializerInterface $serializer): Response
     {
         $carousel = $movieRepository->findForCarousel();
 
