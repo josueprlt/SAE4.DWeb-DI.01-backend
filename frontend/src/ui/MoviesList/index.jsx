@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchAllMovies } from "../../routes/root";
+import { fetchAllMovies } from "../../main";
 import PaysageCard from "../PaysageCard";
 
 export default function MoviesList() {

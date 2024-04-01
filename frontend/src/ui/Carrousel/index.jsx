@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { ArrowLeft, ArrowRight, Play } from "../../components/icons";
-import { fetchCarousel } from "../../routes/root";
+import { fetchCarousel } from "../../main";
 
 export default function Carousel() {
   const [currentIndex, setCurrentIndex] = useState(0);

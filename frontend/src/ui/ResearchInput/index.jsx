@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Research } from "../../components/icons";
-import { fetchResearch } from "../../routes/root";
+import { fetchResearch } from "../../main";
 import PaysageCard from "../PaysageCard";
 
 
