@@ -23,14 +23,14 @@ class Category
     #[Groups(['json_movie'])]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'category')]
-    private Collection $movies;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $img = null;
-
+    
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $description = null;
+    
+    #[ORM\ManyToMany(targetEntity: Movie::class, mappedBy: 'category')]
+    private Collection $movies;
 
     public function __construct()
     {

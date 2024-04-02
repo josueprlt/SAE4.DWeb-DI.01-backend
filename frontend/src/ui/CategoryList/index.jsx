@@ -13,6 +13,10 @@ export default function CategoryList() {
       .catch(error => console.error('Erreur lors de la récupération des catégories:', error));
   }, []);
 
+  if (!categories) {
+    return <div className="text-white w-screen py-5 text-center">Loading...</div>;
+  }
+
   return (
     <ul className='flex gap-1 px-24 pt-10'>
       {categories.map(category => (

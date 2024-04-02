@@ -8,7 +8,7 @@ export default function Category() {
 
   return (
     <>
-      <section className="bg-colorBgBody relative h-full">
+      <section className="bg-colorBgBody relative h-auto">
         <NavBarRetour/>
         <MoviesCatList/>
         <Outlet/>

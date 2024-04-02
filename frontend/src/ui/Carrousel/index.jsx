@@ -31,6 +31,10 @@ export default function Carousel() {
         console.error("Erreur lors de la récupération des films:", error),
       );
   }, []);
+
+  if (!movies) {
+    return <div className="text-white w-screen py-5 text-center">Loading...</div>;
+  }
   
   return (
     <>

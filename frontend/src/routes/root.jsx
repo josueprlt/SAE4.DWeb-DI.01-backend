@@ -6,9 +6,10 @@ import { Outlet } from "react-router-dom";
 import MoviesList from "../ui/MoviesList";
 
 export default function Root() {
+
   return (
     <>
-      <section className="bg-colorBgBody relative h-auto">
+      <section className="bg-colorBgBody relative h-auto overflow-hidden">
         <Navbar />
         <Carousel/>
 

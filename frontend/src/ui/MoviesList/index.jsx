@@ -13,9 +13,11 @@ export default function MoviesList() {
       );
   }, []);
 
+  if (!movies) {
+    return <div className="text-white w-auto py-5 text-center">Loading...</div>;
+  }
+
   return (
-    <section className="m-24 mr-0 flex w-full flex-wrap gap-2 pb-24">
-      <PaysageCard mov={movies}/>
-    </section>
+      <PaysageCard movies={movies}/>
   );
 }
