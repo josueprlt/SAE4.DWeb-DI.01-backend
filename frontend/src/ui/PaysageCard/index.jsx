@@ -18,11 +18,6 @@ export default function PaysageCard({mov}) {
             <figcaption className="px-4 py-3 text-colorWhite">
               <h3>{movie.name}</h3>
               <p>{movie.description}</p>
-              {movie.category.map((cat) => (
-                <li key={cat.id}>
-                  {cat.id}: {cat.name}
-                </li>
-              ))}
             </figcaption>
           </figure>
         ))}

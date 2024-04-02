@@ -23,14 +23,16 @@ class Movie
     #[Groups(['json_category'])]
     private ?string $name = null;
 
-    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'movies')]
-    private Collection $category;
-
+    #[Groups(['json_category'])]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
+    #[Groups(['json_category'])]
     #[ORM\Column(length: 255)]
     private ?string $img = null;
+    
+    #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'movies')]
+    private Collection $category;
 
     public function __construct()
     {

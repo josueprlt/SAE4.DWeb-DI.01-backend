@@ -70,7 +70,7 @@ export async function fetchCarousel() {
   return data;
 }
 
-export async function fetchCategory(id) {
+export async function fetchByCategory(id) {
   let response = await fetch("http://localhost:8080/api/category/"+id);
   let data = await response.json();
   return data;

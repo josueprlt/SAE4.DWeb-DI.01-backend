@@ -16,8 +16,8 @@ export default function CategoryList() {
   return (
     <ul className='flex gap-1 px-24 pt-10'>
       {categories.map(category => (
-        <li key={category.id} className='bg-colorBgBtnCate text-colorWhite py-3 px-5 hover:bg-colorBorderBlue cursor-pointer'>
-          <Link to={'http://localhost:8090/category/'+category.id}>{category.name}</Link>
+        <li key={category.id}>
+          <Link to={'http://localhost:8090/category/'+category.id} className='bg-colorBgBtnCate text-colorWhite hover:bg-colorBorderBlue py-3 px-5'>{category.name}</Link>
         </li>
       ))}
     </ul>

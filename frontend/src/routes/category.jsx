@@ -1,16 +1,16 @@
-import { Outlet, useParams } from "react-router-dom";
-import { fetchCategory } from "../main";
+import React from "react";
+import { Outlet } from "react-router-dom";
+import NavBarRetour from "../ui/NavBarRetour/index";
+import MoviesCatList from "../ui/MoviesCatList";
 
 
 export default function Category() {
-  const { categoryId } = useParams();
-
-  let data = fetchCategory(categoryId);
-  console.log(data);
 
   return (
     <>
       <section className="bg-colorBgBody relative h-full">
+        <NavBarRetour/>
+        <MoviesCatList/>
         <Outlet/>
       </section>
     </>
