@@ -35,7 +35,7 @@ export default function MoviesCatList() {
   }, [categoryId]);
 
   if (!category) {
-    return <div className="text-white w-screen pt-20 text-center">Loading...</div>;
+    return <div className="text-white w-screen h-screen pt-20 text-center">Loading...</div>;
   }
 
   return (

@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Root from './routes/root.jsx';
 import Research from './routes/research.jsx';
 import Category from './routes/category.jsx';
+import Film from './routes/film.jsx';
 import About from './routes/about.jsx';
 import ErrorPage from './ui/ErrorPage';
 
@@ -25,11 +26,18 @@ const router = createBrowserRouter([
   },
   {
     path: '/about',
-    element: <About />
+    element: <About />,
+    errorElement: <ErrorPage />,
   },
   {
     path: '/category/:categoryId',
-    element: <Category />
+    element: <Category />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/film/:movieId',
+    element: <Film />,
+    errorElement: <ErrorPage />,
   }
 ]);
 
@@ -72,6 +80,12 @@ export async function fetchCarousel() {
 
 export async function fetchByCategory(id) {
   let response = await fetch("http://localhost:8080/api/category/"+id);
+  let data = await response.json();
+  return data;
+}
+
+export async function fetchByMovie(id) {
+  let response = await fetch("http://localhost:8080/api/movie/"+id);
   let data = await response.json();
   return data;
 }

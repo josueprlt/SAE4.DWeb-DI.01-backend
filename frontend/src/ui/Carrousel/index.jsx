@@ -55,8 +55,8 @@ export default function Carousel() {
               <section className="from-colorBgBody absolute bottom-0 w-full bg-gradient-to-t">
                 <figure className="flex flex-col text-center items-center mb-28 text-colorWhite">
                   <figcaption>
-                    <h2 className="text-3xl font-bold">{movie.name}</h2>
-                    <p className="font-semibold">{movie.description}</p>
+                    <h2 className="text-5xl font-bold">{movie.name}</h2>
+                    <p className="text-2xl font-semibold">{movie.description}</p>
                   </figcaption>
 
                   <button className="bg-colorBgBtn hover:bg-colorBgBtnHover flex items-center justify-center gap-3 rounded-full px-5 py-2">

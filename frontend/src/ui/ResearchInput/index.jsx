@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Research } from "../../components/icons";
-import { fetchResearch } from "../../main";
 import PaysageCard from "../PaysageCard";
-
+import { fetchResearch } from "../../main";
 
 function ResearchInput() {
   const [inputValue, setInputValue] = useState("");
@@ -10,16 +9,22 @@ function ResearchInput() {
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
-    handleSearch();
   };
 
-  const handleSearch = async () => {
-    try {
-      setData(await fetchResearch(inputValue));
-    } catch (error) {
-      console.error("Erreur lors de la recherche :", error);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const result = await fetchResearch(inputValue);
+        setData(result);
+      } catch (error) {
+        console.error("Erreur lors de la récupération des films:", error);
+      }
+    };
+
+    if (inputValue) {
+      fetchData();
     }
-  };
+  }, [inputValue]);
 
   return (
     <>
@@ -36,9 +41,7 @@ function ResearchInput() {
         </div>
       </section>
 
-      <section className="p-24 pr-0 flex w-full flex-wrap gap-2 pb-24">
-        <PaysageCard mov={data}/>
-      </section>
+      <PaysageCard movies={data} />
     </>
   );
 }

@@ -16,7 +16,7 @@ export default function PaysageCard({ movies }) {
   const scrollLeft = () => {
     if (containerRef.current) {
       containerRef.current.scrollTo({
-        left: containerRef.current.scrollLeft - 800, // Adjust scroll amount as needed
+        left: containerRef.current.scrollLeft - 800,
         behavior: "smooth",
       });
     }
@@ -25,7 +25,7 @@ export default function PaysageCard({ movies }) {
   const scrollRight = () => {
     if (containerRef.current) {
       containerRef.current.scrollTo({
-        left: containerRef.current.scrollLeft + 800, // Adjust scroll amount as needed
+        left: containerRef.current.scrollLeft + 800,
         behavior: "smooth",
       });
     }
@@ -53,12 +53,13 @@ export default function PaysageCard({ movies }) {
 
       <section
         ref={containerRef}
-        className="m-24 mr-0 px-12 flex flex-nowrap items-center gap-2 h-96 overflow-x-auto snap-x scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100"
+        className="m-24 mr-0 px-12 flex flex-nowrap items-center gap-2 h-96 overflow-x-auto"
       >
         {movies.map((movie) => (
           <figure
             key={movie.id}
             className="group/card h-44 w-80 min-w-80 cursor-pointer overflow-hidden rounded-xl bg-colorBgBtnCate transition-transform delay-500 hover:h-auto hover:scale-125"
+            onClick={() => window.location.href = `http://localhost:8090/film/${movie.id}`}
           >
             <section className="flex h-44 w-80 items-center justify-center overflow-hidden">
               <img
