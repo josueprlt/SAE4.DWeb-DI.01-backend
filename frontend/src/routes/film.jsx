@@ -5,9 +5,6 @@ import { Outlet } from "react-router-dom";
 import { fetchByMovie } from "../main";
 
 function FilmAffichage() {
-}
-
-function FilmPresentation() {
     const { movieId } = useParams();
     const [movies, setMovies] = useState(null);
 
@@ -24,19 +21,33 @@ function FilmPresentation() {
     if (!movies) {
         return (
             <>
-            <div className="text-white w-screen h-screen pt-20 text-center">Loading...</div>
+                <div className="text-white w-screen h-screen pt-20 text-center">Loading...</div>
             </>
-            );
+        );
     }
 
     return (
         <>
+        <section>
+        {movies.map((movie) => (
+            <iframe src={movie.linkYt}
+                    title={"Trailer du film "+movie.name}
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+            </iframe>
+        ))}
+        </section>
         </>
     );
 }
 
+function FilmPresentation() {
+}
+
 export default function Film() {
-    
+
     return (
         <>
             <section className="bg-colorBgBody relative h-auto overflow-hidden">
