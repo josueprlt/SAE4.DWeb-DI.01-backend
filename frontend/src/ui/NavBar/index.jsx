@@ -27,7 +27,7 @@ export default function NavBar() {
           <Link to="/research">
             <Research className="w-14 fill-white hover:bg-colorBorderBlue" />
           </Link>
-          <Link to="/profil">
+          <Link to="http://localhost:8080/login">
             <Profil className="w-14 fill-white hover:bg-colorBorderBlue" />
           </Link>
         </section>
