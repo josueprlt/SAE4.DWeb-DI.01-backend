@@ -52,11 +52,11 @@ export default function Carousel() {
             >
               <img src={movie.img} alt={movie.name} className="h-full w-screen object-cover"/>
 
-              <section className="from-colorBgBody absolute bottom-0 w-full bg-gradient-to-t">
-                <figure className="flex flex-col text-center items-center mb-28 text-colorWhite">
+              <section className="from-colorBgBody absolute bottom-0 w-full px-10 bg-gradient-to-t">
+                <figure className="flex flex-col text-center items-center mb-10 md:mb-28 text-colorWhite">
                   <figcaption>
-                    <h2 className="text-5xl font-bold">{movie.name}</h2>
-                    <p className="text-2xl font-semibold">{movie.description.substring(0, 50)}...</p>
+                    <h2 className="text-3xl md:text-5xl font-bold pb-2">{movie.name}</h2>
+                    <p className="text-lg md:text-2xl font-semibold pb-5">{movie.description.substring(0, 50)}...</p>
                   </figcaption>
 
                   <button
@@ -77,13 +77,13 @@ export default function Carousel() {
           className="bg-colorBgBtnCate hover:bg-colorBorderBlue absolute left-4 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-opacity-50 p-2 transition-colors"
           onClick={goToPrevSlide}
         >
-          <ArrowLeft className="fill-colorWhite w-14" />
+          <ArrowLeft className="fill-colorWhite w-10 md:w-14" />
         </button>
         <button
           className="bg-colorBgBtnCate hover:bg-colorBorderBlue absolute right-4 top-1/2 z-10 -translate-y-1/2 transform rounded-full bg-opacity-50 p-2 transition-colors"
           onClick={goToNextSlide}
         >
-          <ArrowRight className="fill-colorWhite w-14" />
+          <ArrowRight className="fill-colorWhite w-10 md:w-14" />
         </button>
       </div>
     </>
