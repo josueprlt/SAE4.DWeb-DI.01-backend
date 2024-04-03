@@ -34,6 +34,15 @@ class Movie
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'movies')]
     private Collection $category;
 
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateDeb = null;
+
+    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
+    private ?\DateTimeInterface $dateFin = null;
+
+    #[ORM\Column(type: Types::TEXT, nullable: true)]
+    private ?string $linkYt = null;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
@@ -100,6 +109,42 @@ class Movie
     public function setImg(string $img): static
     {
         $this->img = $img;
+
+        return $this;
+    }
+
+    public function getDateDeb(): ?\DateTimeInterface
+    {
+        return $this->dateDeb;
+    }
+
+    public function setDateDeb(?\DateTimeInterface $dateDeb): static
+    {
+        $this->dateDeb = $dateDeb;
+
+        return $this;
+    }
+
+    public function getDateFin(): ?\DateTimeInterface
+    {
+        return $this->dateFin;
+    }
+
+    public function setDateFin(?\DateTimeInterface $dateFin): static
+    {
+        $this->dateFin = $dateFin;
+
+        return $this;
+    }
+
+    public function getLinkYt(): ?string
+    {
+        return $this->linkYt;
+    }
+
+    public function setLinkYt(?string $linkYt): static
+    {
+        $this->linkYt = $linkYt;
 
         return $this;
     }
