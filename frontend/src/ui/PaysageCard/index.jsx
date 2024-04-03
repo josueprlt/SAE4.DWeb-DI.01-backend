@@ -70,7 +70,7 @@ export default function PaysageCard({ movies }) {
             </section>
             <figcaption className="px-4 py-3 text-colorWhite">
               <h3>{movie.name}</h3>
-              <p>{movie.description}</p>
+              <p>{movie.description.substring(0, 50)}...</p>
             </figcaption>
           </figure>
         ))}

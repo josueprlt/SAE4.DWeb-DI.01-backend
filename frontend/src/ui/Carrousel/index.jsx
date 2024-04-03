@@ -56,10 +56,14 @@ export default function Carousel() {
                 <figure className="flex flex-col text-center items-center mb-28 text-colorWhite">
                   <figcaption>
                     <h2 className="text-5xl font-bold">{movie.name}</h2>
-                    <p className="text-2xl font-semibold">{movie.description}</p>
+                    <p className="text-2xl font-semibold">{movie.description.substring(0, 50)}...</p>
                   </figcaption>
 
-                  <button className="bg-colorBgBtn hover:bg-colorBgBtnHover flex items-center justify-center gap-3 rounded-full px-5 py-2">
+                  <button
+                    id={movie.id}
+                    className="bg-colorBgBtn hover:bg-colorBgBtnHover flex items-center justify-center gap-3 rounded-full px-5 py-2"
+                    onClick={() => window.location.href = "http://localhost:8090/film/"+ movie.id}
+                    >
                     <Play className="fill-colorWhite w-3" />
                     <span className="text-lg font-semibold">Visionner</span>
                   </button>

@@ -14,6 +14,7 @@ export default {
         colorBgFondBurger: "hsl(var(--clr-bg-fond-burger) / <alpha-value>)",
         colorBgBurger: "hsl(var(--clr-bg-burger) / <alpha-value>)",
         colorBorderResearch: "hsl(var(--clr-border-research) / <alpha-value>)",
+        colorBgGray: "hsl(var(--clr-bg-gray) / <alpha-value>)",
       },
 
       spacing: {

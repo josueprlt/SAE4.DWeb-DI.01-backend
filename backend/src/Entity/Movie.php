@@ -34,14 +34,20 @@ class Movie
     #[ORM\ManyToMany(targetEntity: Category::class, inversedBy: 'movies')]
     private Collection $category;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $dateDeb = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $dateDeb = null;
 
-    #[ORM\Column(type: Types::DATE_MUTABLE, nullable: true)]
-    private ?\DateTimeInterface $dateFin = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $dateFin = null;
 
     #[ORM\Column(type: Types::TEXT, nullable: true)]
     private ?string $linkYt = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $realisateur = null;
+
+    #[ORM\Column(length: 20, nullable: true)]
+    private ?string $time = null;
 
     public function __construct()
     {
@@ -113,24 +119,24 @@ class Movie
         return $this;
     }
 
-    public function getDateDeb(): ?\DateTimeInterface
+    public function getDateDeb(): ?string
     {
         return $this->dateDeb;
     }
 
-    public function setDateDeb(?\DateTimeInterface $dateDeb): static
+    public function setDateDeb(?string $dateDeb): static
     {
         $this->dateDeb = $dateDeb;
 
         return $this;
     }
 
-    public function getDateFin(): ?\DateTimeInterface
+    public function getDateFin(): ?string
     {
         return $this->dateFin;
     }
 
-    public function setDateFin(?\DateTimeInterface $dateFin): static
+    public function setDateFin(?string $dateFin): static
     {
         $this->dateFin = $dateFin;
 
@@ -145,6 +151,30 @@ class Movie
     public function setLinkYt(?string $linkYt): static
     {
         $this->linkYt = $linkYt;
+
+        return $this;
+    }
+
+    public function getRealisateur(): ?string
+    {
+        return $this->realisateur;
+    }
+
+    public function setRealisateur(?string $realisateur): static
+    {
+        $this->realisateur = $realisateur;
+
+        return $this;
+    }
+
+    public function getTime(): ?string
+    {
+        return $this->time;
+    }
+
+    public function setTime(?string $time): static
+    {
+        $this->time = $time;
 
         return $this;
     }
