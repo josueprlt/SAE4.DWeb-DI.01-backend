@@ -1,14 +1,18 @@
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams , Outlet } from "react-router-dom";
 import NavbarRetour from "../ui/NavBarRetour";
-import { Outlet } from "react-router-dom";
 import { fetchByMovie } from "../main";
 
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
 function FilmAffichage() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
-    
+
     useEffect(() => {
         fetchByMovie(movieId)
         .then((data) => {
@@ -19,6 +23,9 @@ function FilmAffichage() {
         );
     }, [movieId]);
 
+    // Récupère le cookie de l'utilisateur
+    const userCookie = getCookie('user');
+    console.log(userCookie);
 
     if (!movie) {
         return (
@@ -26,6 +33,10 @@ function FilmAffichage() {
                 <div className="text-white w-screen h-screen pt-20 text-center">Loading...</div>
             </>
         );
+    } else if (!userCookie) {
+        
+        window.location.href = 'http://localhost:8080/login';
+        return null;
     } else {
         console.log(movie);
 
