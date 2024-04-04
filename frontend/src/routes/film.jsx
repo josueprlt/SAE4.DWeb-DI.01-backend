@@ -1,19 +1,28 @@
 import { useState, useEffect } from "react";
 import { useParams , Outlet } from "react-router-dom";
 import NavbarRetour from "../ui/NavBarRetour";
-import { fetchByMovie } from "../main";
+import { fetchByMovie, fetchUser } from "../lib/loaders";
 
-function getCookie(name) {
+/* function getCookie(name) {
     const value = `; ${document.cookie}`;
     const parts = value.split(`; ${name}=`);
     if (parts.length === 2) return parts.pop().split(';').shift();
-}
+} */
 
 function FilmAffichage() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
+    const [user, setUser] = useState(null);
 
     useEffect(() => {
+        fetchUser()
+        .then((data) => {
+            setUser(data);
+        })
+        .catch((error) =>
+        console.error("Erreur lors de la récupération du cookie:", error)
+        );
+        
         fetchByMovie(movieId)
         .then((data) => {
             setMovie(data);
@@ -21,24 +30,21 @@ function FilmAffichage() {
         .catch((error) =>
         console.error("Erreur lors de la récupération du film:", error)
         );
-    }, [movieId]);
+    });
 
-    // Récupère le cookie de l'utilisateur
-    const userCookie = getCookie('user');
-    console.log(userCookie);
-
+    /* const userCookie = getCookie('user')
+    console.log(userCookie); */
+    
     if (!movie) {
         return (
             <>
                 <div className="text-white w-screen h-screen pt-20 text-center">Loading...</div>
             </>
         );
-    } else if (!userCookie) {
+    } else if (user != null) {
         
         window.location.href = 'http://localhost:8080/login';
-        return null;
     } else {
-        console.log(movie);
 
         return (
             <>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Research } from "../../components/icons";
 import PaysageCard from "../PaysageCard";
-import { fetchResearch } from "../../main";
+import { fetchResearch } from "../../lib/loaders";
 
 function ResearchInput() {
   const [inputValue, setInputValue] = useState("");

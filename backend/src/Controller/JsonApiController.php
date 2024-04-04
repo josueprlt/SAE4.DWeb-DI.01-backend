@@ -92,4 +92,18 @@ class JsonApiController extends AbstractController
         $response = new JsonResponse($data);
         return $response;
     }
+
+
+    #[Route('/api/user', name: 'app_api_user')]
+    public function getUserInfo(SerializerInterface $serializer): JsonResponse
+    {
+      $user = $this->getUser();
+
+      if ($user) {
+          $data = $serializer->normalize($user, null, ['groups' => 'json_user']);
+          return new JsonResponse($data);
+      }
+
+      return new JsonResponse(null);
+    }
 }

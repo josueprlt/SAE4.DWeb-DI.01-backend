@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
-import { fetchAllCategories } from '../../main';
+import { fetchAllCategories } from '../../lib/loaders';
 
 
 export default function CategoryList() {

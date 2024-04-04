@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { fetchAllMovies } from "../../main";
+import { fetchAllMovies } from "../../lib/loaders";
 import PaysageCard from "../PaysageCard";
 
 export default function MoviesList() {

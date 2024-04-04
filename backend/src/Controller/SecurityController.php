@@ -13,37 +13,37 @@ class SecurityController extends AbstractController
 {
     #[Route(path: '/login', name: 'app_login')]
     public function login(AuthenticationUtils $authenticationUtils, Request $request): Response
-{
-    // get the login error if there is one
-    $error = $authenticationUtils->getLastAuthenticationError();
+    {
+        // get the login error if there is one
+        $error = $authenticationUtils->getLastAuthenticationError();
 
-    // last username entered by the user
-    $lastUsername = $authenticationUtils->getLastUsername();
+        // last username entered by the user
+        $lastUsername = $authenticationUtils->getLastUsername();
 
-    $response = $this->render('security/login.html.twig', [
-        'last_username' => $lastUsername,
-        'error' => $error,
-    ]);
+        $response = $this->render('security/login.html.twig', [
+            'last_username' => $lastUsername,
+            'error' => $error,
+        ]);
 
-    if ($user = $this->getUser()) {
-        $cookie = new Cookie(
-            'user', // Nom du cookie
-            $user->getEmail(), // Valeur du cookie
-            time() + (2 * 365 * 24 * 60 * 60),
-            '/',
-            null,
-            false,
-            true,
-            false,
-            'lax'
-        );
+        if ($user = $this->getUser()) {
+            $cookie = new Cookie(
+                'user', // Nom du cookie
+                $user->getEmail(), // Valeur du cookie
+                time() + (2 * 365 * 24 * 60 * 60),
+                '/',
+                null,
+                false,
+                true,
+                false,
+                'lax'
+            );
 
-        // Ajoute le cookie à la réponse
-        $response->headers->setCookie($cookie);
+            // Ajoute le cookie à la réponse
+            $response->headers->setCookie($cookie);
+        }
+
+        return $response;
     }
-
-    return $response;
-}
 
     #[Route(path: '/logout', name: 'app_logout')]
     public function logout(): void

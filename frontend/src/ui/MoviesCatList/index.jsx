@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import { fetchByCategory } from "../../main";
+import { fetchByCategory } from "../../lib/loaders";
 import PaysageCard from "../PaysageCard";
 
 function PresentCat({ category }) {
