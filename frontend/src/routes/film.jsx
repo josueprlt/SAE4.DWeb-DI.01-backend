@@ -4,19 +4,21 @@ import NavbarRetour from "../ui/NavBarRetour";
 import { Outlet } from "react-router-dom";
 import { fetchByMovie } from "../main";
 
+
 function FilmAffichage() {
     const { movieId } = useParams();
     const [movie, setMovie] = useState(null);
-
+    
     useEffect(() => {
         fetchByMovie(movieId)
-            .then((data) => {
-                setMovie(data);
-            })
-            .catch((error) =>
-                console.error("Erreur lors de la récupération du film:", error)
-            );
+        .then((data) => {
+            setMovie(data);
+        })
+        .catch((error) =>
+        console.error("Erreur lors de la récupération du film:", error)
+        );
     }, [movieId]);
+
 
     if (!movie) {
         return (

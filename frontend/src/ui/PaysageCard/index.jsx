@@ -42,12 +42,11 @@ export default function PaysageCard({ movies }) {
   };
 
   return (
-    <section>
+    <section className="h-auto">
       {movieSections.length > 0 && (
         movieSections.map((section, index) => (
           <div className="relative">
             <section
-              key={index}
               ref={containerRefs[index]}
               className="m-0 px-5 md:m-10 md:mr-0 md:px-12 flex flex-nowrap items-center gap-4 h-96 overflow-x-auto"
             >
