@@ -12,6 +12,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use App\Repository\MovieRepository;
 use App\Repository\CategoryRepository;
+use App\Repository\UserRepository;
 
 class JsonApiController extends AbstractController
 {    
@@ -106,13 +107,14 @@ class JsonApiController extends AbstractController
 
 
     #[Route('/api/user', name: 'app_api_user')]
-    public function getUserInfo(SerializerInterface $serializer): JsonResponse
+    public function getUserInfo(UserRepository $userRepository, SerializerInterface $serializer): JsonResponse
     {
         $user = $this->getUser();
-
-        if ($user) {
-            $data = $serializer->normalize($user, null, ['groups' => 'user_info']);
-        return new JsonResponse($data);
+        $dt = $userRepository->findUserWithMovies(5);
+        
+        if ($dt) {
+                $data = $serializer->normalize($dt, null, ['groups' => 'user_info']);
+                return new JsonResponse($data);
         }
 
         return new JsonResponse("Not Logged");
