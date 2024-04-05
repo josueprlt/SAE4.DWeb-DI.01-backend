@@ -6,6 +6,7 @@ use App\Entity\Category;
 use App\Entity\Movie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -13,7 +14,17 @@ use App\Repository\MovieRepository;
 use App\Repository\CategoryRepository;
 
 class JsonApiController extends AbstractController
-{
+{    
+    #[Route('/', name: 'app_accueil')]
+    public function indexRedirect(): Response
+    {
+        $url = 'http://localhost:8090/';
+        $response = new RedirectResponse($url);
+
+        // Retournez la réponse de redirection
+        return $response;
+    }
+
     #[Route('/json/api', name: 'app_json_api')]
     public function index(): Response
     {
@@ -99,13 +110,22 @@ class JsonApiController extends AbstractController
     {
         $user = $this->getUser();
 
-        /* dd($user); */
-
         if ($user) {
-            $data = $serializer->normalize($user);
+            $data = $serializer->normalize($user, null, ['groups' => 'user_info']);
         return new JsonResponse($data);
         }
 
         return new JsonResponse("Not Logged");
     }
+
+
+    /* #[Route('/api/playlist/{id}', name: 'app_api_playlist_user')]
+    public function readPlaylistByUser(CategoryRepository $cats, SerializerInterface $serializer): Response
+    {
+        $gategories = $cats->findAll();
+
+        $data = $serializer->normalize($gategories, null, ['groups' => 'json_playlist']);
+        $response = new JsonResponse($data);
+        return $response;
+    } */
 }

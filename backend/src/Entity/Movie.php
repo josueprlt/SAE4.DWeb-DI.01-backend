@@ -22,7 +22,7 @@ class Movie
     #[ORM\Column(length: 255)]
     #[Groups(['json_category'])]
     private ?string $name = null;
-
+    
     #[Groups(['json_category'])]
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
@@ -49,9 +49,13 @@ class Movie
     #[ORM\Column(length: 20, nullable: true)]
     private ?string $time = null;
 
+    #[ORM\ManyToMany(targetEntity: User::class, mappedBy: 'movies')]
+    private Collection $users;
+
     public function __construct()
     {
         $this->category = new ArrayCollection();
+        $this->users = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -175,6 +179,33 @@ class Movie
     public function setTime(?string $time): static
     {
         $this->time = $time;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, User>
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): static
+    {
+        if (!$this->users->contains($user)) {
+            $this->users->add($user);
+            $user->addMovie($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): static
+    {
+        if ($this->users->removeElement($user)) {
+            $user->removeMovie($this);
+        }
 
         return $this;
     }

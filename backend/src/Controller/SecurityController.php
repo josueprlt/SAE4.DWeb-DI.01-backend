@@ -25,23 +25,6 @@ class SecurityController extends AbstractController
             'error' => $error,
         ]);
 
-        if ($user = $this->getUser()) {
-            $cookie = new Cookie(
-                'user', // Nom du cookie
-                $user->getEmail(), // Valeur du cookie
-                time() + (2 * 365 * 24 * 60 * 60),
-                '/',
-                null,
-                false,
-                true,
-                false,
-                'lax'
-            );
-
-            // Ajoute le cookie à la réponse
-            $response->headers->setCookie($cookie);
-        }
-
         return $response;
     }
 

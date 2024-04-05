@@ -11,7 +11,7 @@ export default function ProfilList() {
                 setUser(data);
             })
             .catch((error) =>
-                console.error("Erreur lors de la récupération du cookie:", error)
+                console.error("Erreur lors de la récupération d'utilisateur:", error)
             );
     });
 
@@ -53,10 +53,12 @@ export default function ProfilList() {
 
                     <section className="flex justify-between flex-wrap gap-10">
                         <h3 className="text-xl font-bold mb-5">Compte</h3>
-                        <a href="#" className="underline font-bold">Supprimer le compte</a>
+                        <Link to="http://localhost:8080/logout" className="underline font-bold">Se déconnecter</Link>
                     </section>
 
-                    <Link className="p-2 bg-colorWhite">Supprimer le compte</Link>
+                    <section className="text-center mt-20">
+                        <Link className="px-4 py-2 bg-none border-4 border-red-700 text-red-700 font-bold rounded-full hover:text-colorWhite hover:bg-red-700">Supprimer le compte</Link>
+                    </section>
                 </section>
             </>
         );
