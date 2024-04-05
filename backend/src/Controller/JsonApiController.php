@@ -3,12 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\Category;
+use App\Entity\Movie;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Symfony\Component\Serializer\SerializerInterface;
 use Symfony\Component\HttpFoundation\JsonResponse;
-use App\Entity\Movie;
 use App\Repository\MovieRepository;
 use App\Repository\CategoryRepository;
 
@@ -97,13 +97,15 @@ class JsonApiController extends AbstractController
     #[Route('/api/user', name: 'app_api_user')]
     public function getUserInfo(SerializerInterface $serializer): JsonResponse
     {
-      $user = $this->getUser();
+        $user = $this->getUser();
 
-      if ($user) {
-          $data = $serializer->normalize($user, null, ['groups' => 'json_user']);
-          return new JsonResponse($data);
-      }
+        /* dd($user); */
 
-      return new JsonResponse(null);
+        if ($user) {
+            $data = $serializer->normalize($user);
+        return new JsonResponse($data);
+        }
+
+        return new JsonResponse("Not Logged");
     }
 }

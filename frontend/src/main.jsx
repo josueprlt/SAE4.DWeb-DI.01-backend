@@ -6,6 +6,7 @@ import Root from './routes/root.jsx';
 import Research from './routes/research.jsx';
 import Category from './routes/category.jsx';
 import Film from './routes/film.jsx';
+import Profil from './routes/profil.jsx';
 import About from './routes/about.jsx';
 import ErrorPage from './ui/ErrorPage';
 
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
   {
     path: '/film/:movieId',
     element: <Film />,
+    errorElement: <ErrorPage />,
+  },
+  {
+    path: '/profil',
+    element: <Profil />,
     errorElement: <ErrorPage />,
   }
 ]);
