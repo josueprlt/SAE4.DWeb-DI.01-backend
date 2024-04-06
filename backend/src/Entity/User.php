@@ -49,7 +49,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function __construct()
     {
         $this->roles = ['ROLE_USER'];
-        $this->imgProfile = '/film/bladerunner.jpg';
+        $this->imgProfile = '/user/profileImage1.png';
         $this->movies = new ArrayCollection();
     }
 

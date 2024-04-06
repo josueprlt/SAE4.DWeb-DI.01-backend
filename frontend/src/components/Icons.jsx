@@ -80,4 +80,28 @@ function Cross(props) {
     );
 }
 
-export { Hamburger, Logo, Profil, Research, ArrowLeft, ArrowRight, Play, Cross };
+function Home(props) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+            <path d="m30.6 19.9-6-4.7a.9.9 0 0 0-1.2 0l-6 4.7a.9.9 0 0 0-.4.8V32a.9.9 0 0 0 1 1h4v-5a2 2 0 0 1 4 0v5h4a.9.9 0 0 0 1-1V20.7a.9.9 0 0 0-.4-.8m-6.6 4a1.9 1.9 0 0 1-2-2 2 2 0 0 1 4 0 1.9 1.9 0 0 1-2 2"/><path d="M33.9 24.9a.8.8 0 0 1-.7-.2L24 15.5l-9.2 9.2a1.2 1.2 0 0 1-1.4 0 1.1 1.1 0 0 1 0-1.5l9.9-9.9a1.2 1.2 0 0 1 1.4 0l9.9 9.9a1.1 1.1 0 0 1 0 1.5.8.8 0 0 1-.7.2"/>
+        </svg>
+    );
+}
+
+function Star(props) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 48 48" {...props}>
+            <path d="m23.8 14.5-3 5.9-6.3 1c-.2 0-.3.3-.2.5l4.5 5-.9 6.5c0 .2.2.4.4.3l5.7-2.9 5.7 2.9c.2.1.4-.1.4-.3l-.9-6.7 4.5-4.8c.1-.2.1-.4-.2-.5l-6.3-1.2-3-5.7c-.1-.2-.3-.2-.4 0"/>
+        </svg>
+    );
+}
+
+function Exit(props) {
+    return (
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" {...props}>
+            <path d="M25.1 14.7a1.1 1.1 0 0 0 1 1.1h4.6l-6.1 6.1a1.1 1.1 0 0 0 1.5 1.5l6.1-6.1v4.6a1.1 1.1 0 0 0 1.1 1 1 1 0 0 0 1-1v-8.2h-8.2a1 1 0 0 0-1 1"/><path d="M30.5 35H14a.9.9 0 0 1-1-1V17.5a1 1 0 0 1 1-1h8.2a1 1 0 0 1 1 1 .9.9 0 0 1-1 1H15V33h14.5v-7.2a.9.9 0 0 1 1-1 1 1 0 0 1 1 1V34a1 1 0 0 1-1 1"/>
+        </svg>
+    );
+}
+
+export { Hamburger, Logo, Profil, Research, ArrowLeft, ArrowRight, Play, Cross, Home, Star, Exit };

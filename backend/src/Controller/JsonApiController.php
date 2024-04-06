@@ -120,16 +120,28 @@ class JsonApiController extends AbstractController
     }
 
 
-    #[Route('/api/playlist{id}', name: 'app_api_playlist_user')]
-    public function readPlaylistByUser($id, UserRepository $userRepository, SerializerInterface $serializer): Response
+    /* #[Route('/api/playlist', name: 'app_api_playlist_user')]
+    public function getPlaylist(SerializerInterface $serializer): JsonResponse
     {
-        $dt = $userRepository->findMovieIdsByUserId($id);
+        $user = $this->getUser();
 
-        if ($dt) {
-            $data = $serializer->normalize($dt, null, ['groups' => 'user_info']);
-            return new JsonResponse($data);
-    }
+        if ($user) {
+            $movies = $user->getMovies(); // Récupère la collection de films
+            dd($movies);
+            $movieData = []; // Tableau pour stocker les données des films
 
-    return new JsonResponse("Not Logged");
-    }
+            // Vérifie si la collection de films est initialisée
+            if ($movies->isInitialized()) {
+                foreach ($movies as $movie) {
+                    // Normalise chaque film et ajoute les données au tableau
+                    $movieData[] = $serializer->normalize($movie, null, ['groups' => 'movie_info']);
+                }
+            }
+
+            // Retourne les données des films sous forme de JsonResponse
+            return new JsonResponse($movieData);
+        }
+
+        return new JsonResponse("Not Logged");
+    } */
 }
