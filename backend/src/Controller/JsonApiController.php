@@ -107,13 +107,12 @@ class JsonApiController extends AbstractController
 
 
     #[Route('/api/user', name: 'app_api_user')]
-    public function getUserInfo(UserRepository $userRepository, SerializerInterface $serializer): JsonResponse
+    public function getUserInfo(SerializerInterface $serializer): JsonResponse
     {
         $user = $this->getUser();
-        $dt = $userRepository->findUserWithMovies(5);
         
-        if ($dt) {
-                $data = $serializer->normalize($dt, null, ['groups' => 'user_info']);
+        if ($user) {
+                $data = $serializer->normalize($user, null, ['groups' => 'user_info']);
                 return new JsonResponse($data);
         }
 
@@ -121,13 +120,16 @@ class JsonApiController extends AbstractController
     }
 
 
-    /* #[Route('/api/playlist/{id}', name: 'app_api_playlist_user')]
-    public function readPlaylistByUser(CategoryRepository $cats, SerializerInterface $serializer): Response
+    #[Route('/api/playlist{id}', name: 'app_api_playlist_user')]
+    public function readPlaylistByUser($id, UserRepository $userRepository, SerializerInterface $serializer): Response
     {
-        $gategories = $cats->findAll();
+        $dt = $userRepository->findMovieIdsByUserId($id);
 
-        $data = $serializer->normalize($gategories, null, ['groups' => 'json_playlist']);
-        $response = new JsonResponse($data);
-        return $response;
-    } */
+        if ($dt) {
+            $data = $serializer->normalize($dt, null, ['groups' => 'user_info']);
+            return new JsonResponse($data);
+    }
+
+    return new JsonResponse("Not Logged");
+    }
 }

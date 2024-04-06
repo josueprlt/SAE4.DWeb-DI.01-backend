@@ -3,6 +3,8 @@
 namespace App\Repository;
 
 use App\Entity\User;
+use App\Entity\Movie;
+use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Component\Security\Core\Exception\UnsupportedUserException;
@@ -19,9 +21,12 @@ use Symfony\Component\Security\Core\User\PasswordUpgraderInterface;
  */
 class UserRepository extends ServiceEntityRepository implements PasswordUpgraderInterface
 {
-    public function __construct(ManagerRegistry $registry)
+    private $entityManager;
+
+    public function __construct(EntityManagerInterface $entityManager, ManagerRegistry $registry)
     {
         parent::__construct($registry, User::class);
+        $this->entityManager = $entityManager;
     }
 
     /**
@@ -62,14 +67,14 @@ class UserRepository extends ServiceEntityRepository implements PasswordUpgrader
     //            ->getOneOrNullResult()
     //        ;
     //    }
-    public function findUserWithMovies(int $userId): ?User
+    public function findMovieIdsByUserId(int $userId): ?array
     {
         return $this->createQueryBuilder('u')
+            ->select('m.id')
             ->leftJoin('u.movies', 'm') // Joindre la relation many-to-many avec les films
-            ->addSelect('m') // Sélectionner également les films
             ->where('u.id = :userId')
             ->setParameter('userId', $userId)
             ->getQuery()
-            ->getOneOrNullResult();
+            ->getResult();
     }
 }
